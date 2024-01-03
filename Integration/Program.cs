@@ -18,6 +18,12 @@ public abstract class Program
         ThreadPool.QueueUserWorkItem(_ => service.SaveItem("b"));
         ThreadPool.QueueUserWorkItem(_ => service.SaveItem("c"));
 
+        Thread.Sleep(500);
+
+        ThreadPool.QueueUserWorkItem(_ => service.SaveItem("d"));
+        ThreadPool.QueueUserWorkItem(_ => service.SaveItem("b"));
+        ThreadPool.QueueUserWorkItem(_ => service.SaveItem("c"));
+
         Thread.Sleep(5000);
 
         Console.WriteLine("Everything recorded:");
